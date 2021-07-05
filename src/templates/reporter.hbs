@@ -12,15 +12,9 @@
   {{/if}}
 </head>
 <body>
-  <div class="eslint-report">
-    <h1>{{pageTitle}}</h1>
-
+  <div class="wrapper">
     {{#if fileSummary.total}}
       {{> summary this}}
-
-      {{#if alertSummary.total}}
-        {{> occurrences this}}
-      {{/if}}
 
       {{> fileBreakdown this}}
 

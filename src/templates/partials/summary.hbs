@@ -1,52 +1,29 @@
-<h2>Summary</h2>
-
-<div class="table-wrapper">
-  <div class="table-column">
-    <table class="summary-table">
+  <div class="pad1 white">
+    <h1>Lint Result</h1>
       {{#with alertSummary}}
-        <tbody>
-          <tr>
-            <td>Errors</td>
-            <td>{{errors}}</td>
-          </tr>
-          <tr>
-            <td>Warnings</td>
-            <td>{{warnings}}</td>
-          </tr>
-        </tbody>
-        <tfoot>
-          <tr>
-            <td>Total alerts</td>
-            <td>{{total}}</td>
-          </tr>
-        </tfoot>
+    <div class="clearfix">
+      <div class="fl pad1y space-right2">
+        <span class="strong">{{errors}}</span>
+        <span class="quiet">Errors</span>
+      </div>
+      <div class="fl pad1y space-right2">
+        <span class="strong">{{warnings}}</span>
+        <span class="quiet">Warnings</span>
+      </div>
       {{/with}}
-    </table>
-  </div>
-  <div class="table-column">
-    <table class="summary-table">
       {{#with fileSummary}}
-        <tbody>
-          <tr>
-            <td>Files with errors</td>
-            <td>{{errors}}</td>
-          </tr>
-          <tr>
-            <td>Files with only warnings</td>
-            <td>{{warnings}}</td>
-          </tr>
-          <tr>
-            <td>Clean files</td>
-            <td>{{clean}}</td>
-          </tr>
-        </tbody>
-        <tfoot>
-          <tr>
-            <td>Total files linted</td>
-            <td>{{total}}</td>
-          </tr>
-        </tfoot>
+      <div class="fl pad1y space-right2">
+        <span class="strong">4.17%</span>
+        <span class="quiet">Files with errors</span>
+        <span class="fraction">{{errors}}/24</span>
+      </div>
+      <div class="fl pad1y space-right2">
+        <span class="strong">0.00%</span>
+        <span class="quiet">Files with only warnings</span>
+        <span class="fraction">{{warnings}}/24</span>
+      </div>
+    </div>
       {{/with}}
-    </table>
   </div>
-</div>
+  <div class="status-line low">
+  </div>

@@ -1,154 +1,172 @@
 <style type="text/css">
-  body {
-    margin: 0;
-  }
-  .eslint-report {
-    font-family: "Helvetica Neue", sans-serif;
-    font-size: 14px;
-    padding: 20px 40px;
-  }
-  .eslint-report h1 {
-    border-bottom: 1px solid #ddd;
-    line-height: 1;
-    padding-bottom: 12px;
-  }
-  .eslint-report h2 {
-    padding-bottom: 9px;
-    line-height: 1;
-    margin-top: 24px;
-    margin-bottom: 9px;
-  }
-  .eslint-report h3 {
-    line-height: 1;
-    margin-top: 0;
-  }
-  .eslint-report a {
-    text-decoration: none;
-  }
-  .eslint-report table {
-    border-spacing: 0;
-    border-collapse: collapse;
-  }
-  .toggle-all-link {
-    font-size: 14px;
-  }
-  .report-table {
-    font-size: 14px;
-    min-width: 800px;
-    border: 1px solid #e6e6e6;
-    margin: 10px;
-  }
-  .report-table thead {
-    background-color: #eee;
-  }
-  .report-table th {
-    text-align: left;
-    vertical-align: middle;
-  }
-  .report-table th,
-  .report-table td {
-    padding: 4px 9px;
-    border: 1px solid #ccc;
-  }
-  .report-table td {
-    line-height: 1.5;
-    vertical-align: top;
-  }
-  .report-table .error-col {
-    width: 41px;
-  }
-  .report-table .warning-col {
-    width: 63px;
-  }
-  .report-table .toggle-link {
-    display: block;
-  }
-  .report-table .danger td {
-    background-color: rgba(242, 222, 222, 0.8);
-  }
-  .report-table .danger:hover td {
-    background-color: rgba(242, 222, 222, 1);
-  }
-  .report-table .warning td {
-    background-color: rgba(252, 248, 227, 0.8);
-  }
-  .report-table .warning:hover td {
-    background-color: rgba(252, 248, 227, 1);
-  }
-  .report-table .success td {
-    background-color: rgba(223, 240, 216, 0.8);
-  }
-  .report-table .success:hover td {
-    background-color: rgba(223, 240, 216, 1);
-  }
-  .table-wrapper {
-    display: flex;
-    justify-content: flex-start;
-    width: 600px;
-    align-items: flex-end;
-  }
-  .table-wrapper.occurrences {
-    align-items: flex-start;
-  }
-  .table-wrapper.occurrences .table-column {
-    height: 180px;
-    overflow-y: auto;
-  }
-  .table-column {
-    flex: 1;
-    margin: 10px;
-  }
-  .summary-table {
-    width: 100%;
-  }
-  .summary-table a {
-    display: block;
-  }
-  .summary-table td {
-    padding: 4px 0;
-  }
-  .summary-table td:last-child {
-    text-align: right;
-  }
-  .summary-table tfoot td {
-    border-top: 2px solid #666;
-    font-weight: bold;
-  }
-  .details-row.hidden {
-    display: none;
-  }
-  .details-table {
-    font-size: 12px;
-    width: 100%;
-    margin-bottom: 15px;
-  }
-  .details-table td {
-    border: 0;
-    padding: 1px 6px;
-  }
-  .details-table td:first-child {
-    padding-left: 0;
-  }
-  .details-table .location-col {
-    width: 25px;
-  }
-  .details-table .rule-col {
-    white-space: nowrap;
-    width: 100px;
-  }
-  .details-table .rule-col a {
-    display: block;
-  }
-  .details-table .rule-col a:hover {
-    text-decoration: underline;
-  }
-  .details-table .severity-col {
-    width: 45px;
-  }
-  .details-table .msg-danger .severity-col {
-    color: #900;
-  }
-  .details-table .msg-warning .severity-col {
-    color: #f90;
-  }
+*, *:after, *:before {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+body {
+  font-family: Helvetica Neue, Helvetica, Arial;
+  font-size: 14px;
+  color: #333;
+  background-color: #eee;
+}
+
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+a {
+  color: #0074D9;
+  text-decoration: none;
+}
+
+.wrapper {
+  min-height: 100%;
+  height: auto !important;
+  margin: 0 auto -48px;
+}
+
+.pad1 {
+  padding: 10px;
+}
+
+.white {
+  background-color: #fff;
+}
+
+h1 {
+  font-size: 20px;
+  margin: 0;
+  display: block;
+}
+
+.clearfix {
+  display: block;
+}
+
+.clearfix:after {
+  content: '';
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+
+.pad1y {
+  padding: 10px 0;
+}
+.pad1x {
+  padding: 0 10px;
+}
+
+.space-right2 {
+  padding-right: 20px;
+}
+
+.fl {
+  float: left;
+}
+
+.strong {
+  font-weight: bold;
+}
+
+.quiet {
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.fraction {
+  font-family: Consolas, 'Liberation Mono', Menlo, Courier, monospace;
+  font-size: 10px;
+  color: #555;
+  background-color: #E8E8E8;
+  padding: 4px 5px;
+  border-radius: 3px;
+  vertical-align: middle;
+}
+
+.status-line {
+  height: 10px;
+}
+
+.status-line.low {
+  background-color: #C21F39;
+}
+
+.status-line.medium {
+  background-color: #f9cd0b;
+}
+
+.status-line.high {
+  background-color: rgb(77,146,33);
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: inherit;
+  color: inherit;
+}
+
+tbody {
+  border: 1px solid #bbb;
+}
+
+th {
+  background-color: #fff;
+  padding: 10px;
+  text-align: left;
+  font-weight: normal;
+  white-space: nowrap;
+}
+
+tr {
+  border: 1px solid #bbb;
+}
+
+tr.details {
+  background-color: #fff;
+}
+
+td {
+  border: 1px solid #bbb;
+  padding: 10px;
+}
+
+.hidden {
+  display: none;
+}
+
+.low {
+  background: #FCE1E5;
+}
+
+.medium {
+  background: #fff4c2;
+}
+
+.high {
+  background: rgb(230,245,208);
+}
+
+table.details-table, .details-table tbody, .details-table tr, .details-table td {
+  border: none;
+  padding: 0px;
+}
+
+.details-table tr {
+  background: inherit;
+}
+
+.low .type {
+  color: #C21F39;
+}
+.medium .type {
+  color: #f9cd0b;
+}
+.high .type {
+  color: rgb(77,146,33);
+}
 </style>

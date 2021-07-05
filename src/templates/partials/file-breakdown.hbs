@@ -1,8 +1,12 @@
-<h2>File Breakdown
+<!--<h2>File Breakdown-->
   {{#if fullReport}}
-    <a id="toggle" href="javascript:;" onclick="toggleAllDetails(this)" class="toggle-all-link">(expand all)</a>
+  <div class="pad1x">
+    <a id="toggle" href="javascript:;" onclick="toggleAllDetails(this)" class="toggle-all-link">Expand all</a>
+  </div>
   {{~/if~}}
-</h2>
+<!--</h2>-->
+
+<div class="pad1">
 
 <table class="report-table">
   <thead>
@@ -26,23 +30,23 @@
         <td>{{warnings}}</td>
       {{~/row~}}
       {{~#if messages.length~}}
-        <tr class="details-row hidden">
+        <tr class="details hidden">
           <td colspan="3">
             <table class="details-table">
               <tbody>
                 {{~#each messages~}}
                   {{~#messageRow this~}}
-                    <td class="location-col">
+                    <td>
                       {{#if line}}
                         {{line}}:{{column}}
                       {{/if}}
                     </td>
-                    <td class="severity-col">{{formatSeverity this}}</td>
-                    <td class="message-col">{{message}}</td>
+                    <td class="type">{{formatSeverity this}}</td>
+                    <td>{{message}}</td>
                     {{#if ruleUrl}}
-                      <td class="rule-col"><a href="{{ruleUrl}}">{{ruleId}}</a></td>
+                      <td><a href="{{ruleUrl}}">{{ruleId}}</a></td>
                     {{^}}
-                      <td class="rule-col">{{ruleId}}</td>
+                      <td>{{ruleId}}</td>
                     {{/if}}
                   {{~/messageRow}}
                 {{~/each~}}
@@ -54,3 +58,4 @@
     {{~/each~}}
   </tbody>
 </table>
+</div>

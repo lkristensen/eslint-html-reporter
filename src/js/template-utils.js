@@ -16,12 +16,12 @@ var path = require('path');
  * @returns {string} - Table row with appropriate class name
  */
 exports.rowHelper = function(context, options) {
-  var className = 'success';
+  var className = 'high';
 
   if (context.errors) {
-    className = 'danger';
+    className = 'low';
   } else if (context.warnings) {
-    className = 'warning';
+    className = 'medium';
   }
 
   return '<tr class="' + className + '">' + options.fn(this) + '</tr>';
@@ -34,12 +34,12 @@ exports.rowHelper = function(context, options) {
  * @returns {string} - Table row with appropriate class name
  */
 exports.messageRow = function(context, options) {
-  var className = '';
+  var className = 'high';
 
   if (context.severity === 2 || context.severity === 'error') {
-    className = 'msg-danger';
+    className = 'low';
   } else if (context.severity === 1 || context.severity === 'warning') {
-    className = 'msg-warning';
+    className = 'medium';
   }
 
   if (className === '') {

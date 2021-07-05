@@ -3,8 +3,8 @@
  */
 
 
-var TeamCityLogger = require('hairballs').TeamCityLogger;
-var hairballs = require('hairballs');
+//var TeamCityLogger = require('hairballs').TeamCityLogger;
+var hairballs = require('./summary.js');
 
 
 function LintReporter() {
@@ -43,8 +43,8 @@ function LintReporter() {
    */
   this.summarizeData = function(results) {
 
-    var teamCityLogger = new TeamCityLogger('ESLint');
-    teamCityLogger.reportStart();
+//    var teamCityLogger = new TeamCityLogger('ESLint');
+//    teamCityLogger.reportStart();
 
 
     for (var i = 0; i < results.length; i++) {
@@ -53,7 +53,7 @@ function LintReporter() {
       var messages = result.messages;
       var file = { path: fileName, errors: 0, warnings: 0, messages: [], errorList: [] };
 
-      teamCityLogger.testStart(fileName);
+//      teamCityLogger.testStart(fileName);
 
       for (var x = 0; x < messages.length; x++) {
         var message = messages[x];
@@ -62,11 +62,11 @@ function LintReporter() {
         file = this.summarizeFile(file, message);
       }
 
-      if (file.errorList.length) {
+/*      if (file.errorList.length) {
         teamCityLogger.testFailed(fileName, file.errorList);
-      }
+      }*/
 
-      teamCityLogger.testEnd(fileName);
+//      teamCityLogger.testEnd(fileName);
       hairballs.updateFileSummary(file);
 
       // remove messages so that handlebars doesn't print links in the report
@@ -76,12 +76,12 @@ function LintReporter() {
       }
     }
 
-    teamCityLogger.reportEnd();
+//    teamCityLogger.reportEnd();
 
     // output team city report to the console
-    if (this.useTeamCityReport) {
+/*    if (this.useTeamCityReport) {
       console.log(teamCityLogger.reportOutput.join('\n'));
-    }
+    }*/
   };
 
   /**

@@ -13,14 +13,14 @@
       {{/with}}
       {{#with fileSummary}}
       <div class="fl pad1y space-right2">
-        <span class="strong">4.17%</span>
+        <span class="strong">{{error_pct}}</span>
         <span class="quiet">Files with errors</span>
-        <span class="fraction">{{errors}}/24</span>
+        <span class="fraction">{{errors}}/{{total}}</span>
       </div>
       <div class="fl pad1y space-right2">
-        <span class="strong">0.00%</span>
+        <span class="strong">{{warning_pct}}</span>
         <span class="quiet">Files with only warnings</span>
-        <span class="fraction">{{warnings}}/24</span>
+        <span class="fraction">{{warnings}}/{{total}}</span>
       </div>
     </div>
       {{/with}}

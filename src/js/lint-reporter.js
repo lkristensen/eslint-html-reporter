@@ -6,6 +6,11 @@
 //var TeamCityLogger = require('hairballs').TeamCityLogger;
 var hairballs = require('./summary.js');
 
+function toPctString (num) {
+  let t = Math.floor(num);
+  let n = Math.round((num - t) * 100);
+  return t + "." + n + "%";
+}
 
 function LintReporter() {
 
@@ -68,6 +73,8 @@ function LintReporter() {
 
 //      teamCityLogger.testEnd(fileName);
       hairballs.updateFileSummary(file);
+      hairballs.fileSummary.error_pct = toPctString(hairballs.fileSummary.errors / hairballs.fileSummary.total * 100);
+      hairballs.fileSummary.warning_pct = toPctString(hairballs.fileSummary.warnings / hairballs.fileSummary.total * 100);
 
       // remove messages so that handlebars doesn't print links in the report
       // @todo get rid of handlebars

@@ -3,12 +3,13 @@
  */
 
 var LintReporter = require('./src/js/lint-reporter');
-var templateUtils = require('hairballs').templateUtils;
+var templateUtils = require('./src/js/template-utils');
 
 
 module.exports = function(results) {
   var lintReporter = new LintReporter();
   var data = lintReporter.runReport(results, true, false);
+  console.log()
 
   return templateUtils.applyTemplates(data);
 };
